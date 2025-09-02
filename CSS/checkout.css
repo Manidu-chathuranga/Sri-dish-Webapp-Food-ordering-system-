@@ -1,0 +1,182 @@
+/* Inherits general styles from home.css */
+
+main {
+    padding-top: 100px;
+    min-height: calc(100vh - 150px);
+}
+
+.checkout-section {
+    padding: 40px 1.5rem;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.checkout-section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--dark-text-color);
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.checkout-section h2::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 4px;
+    background-color: var(--primary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.checkout-container {
+    display: flex;
+    gap: 3rem;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+}
+
+.checkout-form-container,
+.order-summary-container {
+    flex: 1;
+}
+
+.checkout-form-container h3,
+.order-summary-container h3 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark-text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--dark-text-color);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.payment-options label {
+    display: inline-block;
+    margin-right: 20px;
+    font-weight: normal;
+}
+
+/* Card Details Form Styling */
+.card-details-form {
+    display: none; /* Hidden by default */
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    background-color: var(--light-bg-color);
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+/* Other CSS styles... */
+
+/* Crypto Details Form Styling */
+.crypto-details-form {
+    display: none; /* Hidden by default */
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    background-color: var(--light-bg-color);
+    text-align: center;
+}
+
+.crypto-details-form h4 {
+    margin-bottom: 1rem;
+    color: var(--dark-text-color);
+}
+
+.qr-code-image {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+.place-order-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--light-bg-color);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.place-order-btn:hover {
+    background-color: #e65c36;
+    transform: translateY(-3px);
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.order-summary-totals {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid var(--border-color);
+    font-size: 1.1em;
+    text-align: right;
+}
+
+.order-summary-totals p {
+    margin-bottom: 10px;
+    color: var(--dark-text-color);
+}
+
+.order-summary-totals .total {
+    font-weight: 700;
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,130 @@
+/* Inherits general styles from home.css */
+
+/* Specific styles for foodorder.php */
+main {
+    padding-top: 100px;
+    min-height: calc(100vh - 150px);
+}
+
+.food-items-section {
+    padding: 40px 1.5rem;
+    max-width: 1300px;
+    margin: 0 auto 40px;
+}
+
+.food-items-section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--dark-text-color);
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.food-items-section h2::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 4px;
+    background-color: var(--primary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.food-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.food-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.food-card img {
+    width: 450px;
+    height: 190px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.food-card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.food-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.food-card p {
+    font-size: 0.9em;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.food-card .price {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--dark-text-color);
+    margin-bottom: 20px;
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-color);
+    color: var(--light-bg-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #e65c36;
+    transform: translateY(-2px);
+}
+
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .food-items-section { padding: 20px 1rem; }
+    .food-items-section h2 { font-size: 2em; }
+    .food-list { grid-template-columns: 1fr; }
+    .food-card { max-width: 400px; margin: 0 auto; }
+}
+@media (max-width: 480px) {
+    .food-items-section h2 { font-size: 1.8em; }
+    .food-card h3 { font-size: 1.3em; }
+    .food-card .price { font-size: 1.1em; }
+    .add-to-cart-btn { font-size: 0.9em; }
+}
