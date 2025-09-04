@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Dish - Careers</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #FFF5E4;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(255, 245, 228, 0.9);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FF9494;
+            text-decoration: none;
+            animation: fadeInDown 1s ease;
+        }
+        
+        /* Main Content */
+        main {
+            padding-top: 100px;
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #FF9494;
+            font-size: 2.5rem;
+            animation: fadeIn 1s ease;
+        }
+        
+        .careers-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: slideUp 1s ease;
+        }
+        
+        .intro-text {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .job-openings {
+            margin-top: 2rem;
+        }
+        
+        .job-card {
+            background-color: #FFE3E1;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            background-color: #FFD1D1;
+        }
+        
+        .job-title {
+            color: #FF9494;
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-location {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .job-description {
+            margin-bottom: 1rem;
+        }
+        
+        .apply-btn {
+            background-color: #FF9494;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .apply-btn:hover {
+            background-color: #ff7a7a;
+            transform: scale(1.05);
+        }
+        
+        .benefits-section {
+            margin-top: 3rem;
+            animation: fadeIn 1s ease 0.5s forwards;
+            opacity: 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .benefit-card {
+            background-color: #FFE3E1;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            background-color: #FFD1D1;
+        }
+        
+        .benefit-icon {
+            font-size: 1.5rem;
+            color: #FF9494;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header {
+                font-size: 2rem;
+            }
+            
+            .careers-container {
+                padding: 1.5rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.php" class="logo">Sri Dish</a>
+        </div>
+    </header>
+    
+    <main>
+        <h1 class="page-header">Join Our Team</h1>
+        
+        <div class="careers-container">
+            <div class="intro-text">
+                <p>At Sri Dish, we're revolutionizing food delivery in Sri Lanka. Join our passionate team and help us connect people with their favorite meals!</p>
+            </div>
+            
+            <div class="job-openings">
+                <h2>Current Openings</h2>
+                
+                <div class="job-card" style="animation-delay: 0.2s">
+                    <h3 class="job-title">Delivery Driver</h3>
+                    <p class="job-location">Colombo, Kandy, Galle</p>
+                    <p class="job-description">Deliver food orders to customers with excellent service. Flexible hours available.</p>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+                
+                <div class="job-card" style="animation-delay: 0.4s">
+                    <h3 class="job-title">Customer Support Specialist</h3>
+                    <p class="job-location">Colombo (Remote Available)</p>
+                    <p class="job-description">Help customers with orders, payments, and any issues they encounter.</p>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+                
+                <div class="job-card" style="animation-delay: 0.6s">
+                    <h3 class="job-title">Marketing Associate</h3>
+                    <p class="job-location">Colombo</p>
+                    <p class="job-description">Develop and execute marketing campaigns to grow our customer base.</p>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+            </div>
+            
+            <div class="benefits-section">
+                <h2>Why Join Sri Dish?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Fast Growth</h3>
+                        <p>Be part of Sri Lanka's fastest growing food delivery platform</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Free Meals</h3>
+                        <p>Enjoy complimentary meals from our partner restaurants</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Great Culture</h3>
+                        <p>Work with a passionate, food-loving team</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Career Growth</h3>
+                        <p>Opportunities for advancement as we expand</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate job cards as they come into view
+            const animateOnScroll = () => {
+                const jobCards = document.querySelectorAll('.job-card');
+                
+                jobCards.forEach((card, index) => {
+                    const cardPosition = card.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (cardPosition < windowHeight - 100) {
+                        card.style.opacity = '1';
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+            
+            // Apply button functionality
+            const applyButtons = document.querySelectorAll('.apply-btn');
+            
+            applyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const jobTitle = this.parentElement.querySelector('.job-title').textContent;
+                    alert(`Application for ${jobTitle} would be processed here`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
