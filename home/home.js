@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function updateCartCount() {
         try {
-            const response = await fetch('api/get_cart_items.php');
+            const response = await fetch('../api/get_cart_items.php');
             const data = await response.json();
             if (data.success) {
                 const totalItems = data.data.reduce((acc, item) => acc + item.quantity, 0);
@@ -89,5 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    updateCartCount(); 
+    updateCartCount();
+
 });
