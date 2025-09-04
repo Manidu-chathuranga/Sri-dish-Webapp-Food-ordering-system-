@@ -1,31 +1,20 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Aug 09, 2025 at 06:28 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `sri_dish_db`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `business_applications`
---
+DROP TABLE IF EXISTS `business_applications`;
+DROP TABLE IF EXISTS `rider_applications`;
+DROP TABLE IF EXISTS `restaurant_applications`;
+DROP TABLE IF EXISTS `order_details`;
+DROP TABLE IF EXISTS `cart_items`;
+DROP TABLE IF EXISTS `orders`;
+DROP TABLE IF EXISTS `foods`;
+DROP TABLE IF EXISTS `restaurants`;
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `cities`;
 
 CREATE TABLE `business_applications` (
   `id` int(11) NOT NULL,
@@ -39,11 +28,9 @@ CREATE TABLE `business_applications` (
   `status` enum('pending','reviewed','approved','rejected') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
 
---
 -- Table structure for table `cart_items`
---
+
 
 CREATE TABLE `cart_items` (
   `id` int(11) NOT NULL,
@@ -55,11 +42,8 @@ CREATE TABLE `cart_items` (
   `added_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
 
---
 -- Table structure for table `foods`
---
 
 CREATE TABLE `foods` (
   `id` int(11) NOT NULL,
@@ -71,9 +55,8 @@ CREATE TABLE `foods` (
   `category` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
+
 -- Dumping data for table `foods`
---
 
 INSERT INTO `foods` (`id`, `restaurant_id`, `name`, `description`, `price`, `image_url`, `category`) VALUES
 (101, 1, 'Chicken Kottu', 'Shredded flatbread, chicken, vegetables, and spices, chopped on a hot griddle.', 850.00, '../assets/images/food/chicken-kottu.jpg', 'Kottu'),
@@ -397,6 +380,3 @@ ALTER TABLE `order_details`
   ADD CONSTRAINT `fk_order_details_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
