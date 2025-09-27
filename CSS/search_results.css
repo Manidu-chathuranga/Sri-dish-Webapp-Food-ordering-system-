@@ -363,8 +363,8 @@ main {
 }
 
 .restaurant-grid {
-    display: flex;
-    gap: 2rem;
+    display:contents;
+    gap: 5rem;
     padding: 0 2rem 1rem;
     animation: scrollRestaurants 30s linear infinite;
     width: max-content;
