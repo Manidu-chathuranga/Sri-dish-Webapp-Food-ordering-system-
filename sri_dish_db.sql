@@ -1,4 +1,11 @@
-
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Sep 28, 2025 at 04:42 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,9 +35,11 @@ CREATE TABLE `business_applications` (
   `status` enum('pending','reviewed','approved','rejected') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
 
+--
 -- Table structure for table `cart_items`
-
+--
 
 CREATE TABLE `cart_items` (
   `id` int(11) NOT NULL,
@@ -42,8 +51,11 @@ CREATE TABLE `cart_items` (
   `added_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
 
+--
 -- Table structure for table `foods`
+--
 
 CREATE TABLE `foods` (
   `id` int(11) NOT NULL,
@@ -55,8 +67,9 @@ CREATE TABLE `foods` (
   `category` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
+--
 -- Dumping data for table `foods`
+--
 
 INSERT INTO `foods` (`id`, `restaurant_id`, `name`, `description`, `price`, `image_url`, `category`) VALUES
 (101, 1, 'Chicken Kottu', 'Shredded flatbread, chicken, vegetables, and spices, chopped on a hot griddle.', 850.00, '../assets/images/food/chicken-kottu.jpg', 'Kottu'),
@@ -112,7 +125,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `session_id`, `total_amount`, `payment_method`, `customer_name`, `customer_phone`, `customer_address`, `status`, `order_date`) VALUES
-(1, 2, '3b5hrtugna8uu3sen12rrch4of', 2100.00, 'card', 'kaneera', '1234567984', 'asdasa', 'pending', '2025-08-09 16:22:29');
+(1, 2, '3b5hrtugna8uu3sen12rrch4of', 2100.00, 'card', 'kaneera', '1234567984', 'asdasa', 'delivering', '2025-08-09 16:22:29'),
+(2, 2, 'ih79a1n8v5cbvjamfkp7v83tne', 1200.00, 'card', 'Manidu Chathuranga', '1234567984', 'ss', 'completed', '2025-09-27 17:14:24');
 
 -- --------------------------------------------------------
 
@@ -137,7 +151,9 @@ INSERT INTO `order_details` (`id`, `order_id`, `food_id`, `quantity`, `price_per
 (2, 1, 302, 1, 250.00),
 (3, 1, 303, 1, 300.00),
 (4, 1, 304, 1, 850.00),
-(5, 1, 305, 1, 350.00);
+(5, 1, 305, 1, 350.00),
+(6, 2, 202, 1, 600.00),
+(7, 2, 504, 1, 450.00);
 
 -- --------------------------------------------------------
 
@@ -154,20 +170,21 @@ CREATE TABLE `restaurants` (
   `rating` decimal(3,1) DEFAULT 0.0,
   `delivery_time_min` int(11) DEFAULT NULL,
   `delivery_time_max` int(11) DEFAULT NULL,
-  `is_popular` tinyint(1) DEFAULT 0
+  `is_popular` tinyint(1) DEFAULT 0,
+  `city` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `restaurants`
 --
 
-INSERT INTO `restaurants` (`id`, `name`, `address`, `description`, `image_url`, `rating`, `delivery_time_min`, `delivery_time_max`, `is_popular`) VALUES
-(1, 'Spice Garden', '123 Galle Road, Colombo 03', 'Experience authentic Sri Lankan cuisine with a modern twist.', 'assets/images/restaurants/spice-garden.jpg', 4.6, 30, 45, 1),
-(2, 'The Kottu Shop', '45 Main Street, Nugegoda', 'Serving the most popular and delicious kottu varieties.', 'assets/images/restaurants/kottu-shop.jpg', 4.9, 20, 35, 1),
-(3, 'Hoppers House', '789 Kandy Road, Kandy', 'A dedicated restaurant for all your hopper cravings.', 'assets/images/restaurants/hoppers-house.jpg', 4.5, 25, 40, 0),
-(4, 'Pizza Hut', '10 Main Street, Colombo 05', 'World-famous pizzas, pastas, and sides.', 'assets/images/restaurants/pizza-hut.jpg', 4.2, 30, 45, 1),
-(5, 'Burger King', '15 High-Level Road, Battaramulla', 'Home of the Whopper and delicious fast-food classics.', 'assets/images/restaurants/burger-king.jpg', 4.3, 20, 35, 1),
-(6, 'Sushi Palace', '20 Park Street, Colombo 07', 'Fresh and authentic Japanese sushi and sashimi.', 'assets/images/restaurants/sushi-palace.jpg', 4.8, 40, 55, 0);
+INSERT INTO `restaurants` (`id`, `name`, `address`, `description`, `image_url`, `rating`, `delivery_time_min`, `delivery_time_max`, `is_popular`, `city`) VALUES
+(1, 'Spice Garden', '123 Galle Road, Colombo 03', 'Experience authentic Sri Lankan cuisine with a modern twist.', 'assets/images/restaurants/spice-garden.jpg', 4.6, 30, 45, 1, 'colombo'),
+(2, 'The Kottu Shop', '45 Main Street, Nugegoda', 'Serving the most popular and delicious kottu varieties.', 'assets/images/restaurants/kottu-shop.jpg', 4.9, 20, 35, 1, 'Nugegoda'),
+(3, 'Hoppers House', '789 Kandy Road, Kandy', 'A dedicated restaurant for all your hopper cravings.', 'assets/images/restaurants/hoppers-house.jpg', 4.5, 25, 40, 0, 'kandy'),
+(4, 'Pizza Hut', '10 Main Street, Colombo 05', 'World-famous pizzas, pastas, and sides.', 'assets/images/restaurants/pizza-hut.jpg', 4.2, 30, 45, 1, 'Colombo'),
+(5, 'Burger King', '15 High-Level Road, Battaramulla', 'Home of the Whopper and delicious fast-food classics.', 'assets/images/restaurants/burger-king.jpg', 4.3, 20, 35, 1, 'Battaramulla'),
+(6, 'Sushi Palace', '20 Park Street, Colombo 07', 'Fresh and authentic Japanese sushi and sashimi.', 'assets/images/restaurants/sushi-palace.jpg', 4.8, 40, 55, 0, 'Colombo');
 
 -- --------------------------------------------------------
 
@@ -306,7 +323,7 @@ ALTER TABLE `business_applications`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `foods`
@@ -318,13 +335,13 @@ ALTER TABLE `foods`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `restaurants`
@@ -380,3 +397,6 @@ ALTER TABLE `order_details`
   ADD CONSTRAINT `fk_order_details_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE;
 COMMIT;
 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
